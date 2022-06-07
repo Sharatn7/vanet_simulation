@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2022-06-07 11:58:32 by Eclipse SUMO duarouter Version v1_13_0+0614-4ee73fa3635
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.net.xml"/>
+        <route-files value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.truck.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.truck.trips.xml.tmp"/>
+        <write-trips value="true"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="truck_truck" vClass="truck"/>
+    <trip id="truck0" type="truck_truck" depart="0.00" departLane="best" from="-172008047#3" to="1000964828"/>
+    <trip id="truck1" type="truck_truck" depart="53.23" departLane="best" from="29875609#0" to="-172008054"/>
+    <trip id="truck2" type="truck_truck" depart="106.46" departLane="best" from="172008060" to="172008035#1"/>
+    <trip id="truck3" type="truck_truck" depart="159.70" departLane="best" from="172008062#3" to="-29875609#0"/>
+    <trip id="truck4" type="truck_truck" depart="212.93" departLane="best" from="593969711" to="1000964828"/>
+    <trip id="truck5" type="truck_truck" depart="266.16" departLane="best" from="-1000964828" to="172008047#3"/>
+</routes>

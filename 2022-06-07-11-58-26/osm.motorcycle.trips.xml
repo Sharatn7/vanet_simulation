@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2022-06-07 11:58:33 by Eclipse SUMO duarouter Version v1_13_0+0614-4ee73fa3635
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.net.xml"/>
+        <route-files value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.motorcycle.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/rajhesh/Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/osm.motorcycle.trips.xml.tmp"/>
+        <write-trips value="true"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="moto_motorcycle" vClass="motorcycle"/>
+    <trip id="moto0" type="moto_motorcycle" depart="0.00" departLane="best" from="172008047#1" to="-172008028"/>
+    <trip id="moto1" type="moto_motorcycle" depart="66.54" departLane="best" from="-172008047#7" to="-172008047#3"/>
+    <trip id="moto2" type="moto_motorcycle" depart="133.08" departLane="best" from="172008047#4" to="172008047#12"/>
+    <trip id="moto3" type="moto_motorcycle" depart="199.62" departLane="best" from="172008062#1" to="-172008035#2"/>
+    <trip id="moto4" type="moto_motorcycle" depart="266.16" departLane="best" from="-172008064#0" to="-172008029#0"/>
+</routes>
