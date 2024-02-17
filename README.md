@@ -1,7 +1,3 @@
-Here's the corrected Markdown file for your LinkedIn post:
-
----
-
 # VANET Simulation
 
 This project involves the real-time simulation of Vehicular Ad-Hoc Networks (VANET) using NS3 and SUMO.
