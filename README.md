@@ -1,51 +1,55 @@
-# vanet_simulation
-vanet simulation using ns3 and sumo
+Here's the corrected Markdown file for your LinkedIn post:
 
-//Real time simulation of Vehicular Ad-Hoc Networks (VANET) using NS3 and SUMO
+---
 
-	WAVE- Wireless Access for Vehicular Environments
+# VANET Simulation
 
-//Tools required
-	Ubuntu 16.04 LTS
+This project involves the real-time simulation of Vehicular Ad-Hoc Networks (VANET) using NS3 and SUMO.
 
-	Ns3 version: ns-3.29
+**WAVE (Wireless Access for Vehicular Environments)**
 
-	SUMO version: Eclipse SUMO Version v1_5_0+1154-40cc386
+## Tools Required
 
-	Open street Map (osmWebWizard.py)
+- **Operating System**: Ubuntu 16.04 LTS
+- **NS3 Version**: ns-3.29
+- **SUMO Version**: Eclipse SUMO Version v1_5_0+1154-40cc386
+- **Additional Tool**: OpenStreetMap (osmWebWizard.py)
 
+## Steps:
 
-//step 1:open osmWebWizard.py
+### Step 1: Open OSM Web Wizard
 
-	$ cd sumo/tools
+```bash
+$ cd sumo/tools
+$ python osmWebWizard.py
+```
 
-	$ python osmWebWizard.py
+### Step 2: Process and Generate vanettrace.xml
 
-//step 2: Process and find osm.sumocfg and generate vanettrace.xml
+```bash
+$ cd sumo/tools/2022-06-07-11-58-26/
+$ sumo -c osm.sumocfg --fcd-output vanettrace.xml
+```
 
-	$ cd sumo/tools/2022-06-07-11-58-26/
+### Step 3: Generate vanetmobility.tcl
 
-	find osm.sumocfg
+```bash
+$ cd sumo/tools
+$ python traceExporter.py -i 2022-06-07-11-58-26/trace.xml --ns2mobility-output=2022-06-07-11-58-26/vanetmobility.tcl
+```
 
-	$ sumo -c osm.sumocfg  --fcd-output vanettrace.xml
+### Step 4: Add NetAnimation File
 
+```cpp
+#include "ns3/netanim-module.h"
+AnimationInterface anim("Vanetanim.xml"); // Add before Simulator::Run();
+```
 
-//step 3: find traceExporter.py and generate vanetmobility.tcl
-	$ cd sumo/tools
+### Step 5: Add Performance Analysis Code
 
-	//find traceExporter.py
-
-	$ python traceExporter.py -i 2022-06-07-11-58-26/trace.xml --ns2mobility-		
-	output=2022-06-07-11-58-26/vanetmobility.tcl
-	//Find total nodes in vanetmobility.tcl
-	
-//Step 4: Add netanimation file
-
-	#include "ns3/netanim-module.h"
-
-	AnimationInterface anim("Vanetanim.xml"); //Add before Simulator::Run();
-
-//Step 5: Add performance analysis code to vanet program
+```cpp
+// Network Performance Calculation
+// Add performance analysis code to the vanet program
 
 ///////////////////////// Network Perfomance Calculation ///////////////////////
 uint32_t SentPackets = 0;
@@ -99,15 +103,17 @@ NS_LOG_UNCOND("Total Flod id " << j);
 monitor->SerializeToXmlFile("manet-routing.flowmon", true, true);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+```
 
- 
-//step 6:configure scenario 2
+### Step 6: Configure Scenario 2
 
+```cpp
+// Configure scenario 2
 else if (m_scenario == 2)
  {
       // Realistic vehicular trace in KCT
       // "low density, 21 total vehicles"
-      m_traceFile = "/home/Sharat /Desktop/adhoc/sumo/tools/2022-06-07-11-58-26/vanetmobility.tcl";
+      m_traceFile = "/adhoc/sumo/tools/2022-06-07-11-58-26/vanetmobility.tcl"; //path to "vanetmobility.tcl" file
       m_logFile = "vanet.log";
       m_mobility = 1;
       m_nNodes = 21;
@@ -118,14 +124,23 @@ else if (m_scenario == 2)
       m_CSVfileName = "vanet2.csv";
     }
 
-//Step 7:Run the program
+```
 
-	$ ./waf --run "scratch/vanet-routing-compare --protocol=1 --scenario=2"
+### Step 7: Run the Program
 
+```bash
+$ ./waf --run "scratch/vanet-routing-compare --protocol=1 --scenario=2"
+```
 
+### Step 8: Open NetAnim
 
-//Step 8: Open Netanim
- 	$ cd ns-allinone-3.29/netanim
- 	$ ./NetAnim
- 
-	Load Vanetanim.xml file and see the network animation
+```bash
+$ cd ns-allinone-3.29/netanim
+$ ./NetAnim
+```
+
+Load `Vanetanim.xml` file in NetAnim to visualize the network animation.
+
+---
+
+Feel free to reach out if you have any questions or need further assistance!
